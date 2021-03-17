@@ -10,7 +10,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
     public class Artigo {
         String url;         // endereço do site alvo
@@ -34,8 +33,8 @@ import static org.junit.Assert.assertTrue;
             driver.get(url);
 
             // Pesquisar por "Ovo de Pascoa"
-            driver.findElement(By.id("searchInput")).sendKeys("Ovo de Páscoa");
-            driver.findElement(By.id("searchButton")).click();   // clica na lupa
+            driver.findElement(By.name("search")).sendKeys("Ovo de Páscoa");
+            driver.findElement(By.cssSelector("button.wvui-button")).click();   // clica na lupa
 
             // Validar o titulo
             assertEquals("Ovo de Páscoa – Wikipédia, a enciclopédia livre", driver.getTitle());
